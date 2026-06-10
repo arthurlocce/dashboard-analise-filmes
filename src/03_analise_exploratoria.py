@@ -4,7 +4,7 @@ import json
 import pandas as pd
 
 
-ROOT = Path(_file_).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 PROCESSED_DIR = ROOT / "data" / "processed"
 DOCS_DIR = ROOT / "docs"
 
@@ -46,23 +46,23 @@ def gerar_insights() -> str:
         "## Fonte e volume",
         "- Fonte: The Movies Dataset, Kaggle.",
         f"- Base com {metrics['total_movies']:,} filmes e {metrics['total_tmdb_votes']:,} avaliações TMDb somadas.",
-        f"- Arquivos integrados: movies_metadata.csv e credits.csv.",
+        f"- Arquivos integrados: `movies_metadata.csv` e `credits.csv`.",
         f"- Também foram identificados {metrics['total_directors']:,} diretores.",
         "",
         "## Achados para apresentar",
-        f"1. O gênero com mais filmes é *{genero_mais_filmes['genre']}*, com {int(genero_mais_filmes['movie_count']):,} títulos.",
-        f"2. O gênero com maior receita total é *{genero_maior_receita['genre']}*, somando cerca de US$ {genero_maior_receita['total_revenue'] / 1_000_000_000:.1f} bilhões.",
-        f"3. Entre gêneros com pelo menos 300 filmes, o melhor score médio ponderado é de *{genero_melhor_nota['genre']}*.",
+        f"1. O gênero com mais filmes é **{genero_mais_filmes['genre']}**, com {int(genero_mais_filmes['movie_count']):,} títulos.",
+        f"2. O gênero com maior receita total é **{genero_maior_receita['genre']}**, somando cerca de US$ {genero_maior_receita['total_revenue'] / 1_000_000_000:.1f} bilhões.",
+        f"3. Entre gêneros com pelo menos 300 filmes, o melhor score médio ponderado é de **{genero_melhor_nota['genre']}**.",
         f"4. A correlação entre orçamento e receita é {corr_budget_revenue:.2f}; isso indica uma relação positiva, mas não perfeita, entre investimento e bilheteria.",
         f"5. A correlação entre popularidade e nota média é {corr_pop_vote:.2f}; popularidade não significa automaticamente melhor avaliação.",
-        f"6. O filme de maior receita na base é *{filme_maior_receita['title']}*, com aproximadamente US$ {filme_maior_receita['revenue_usd'] / 1_000_000_000:.1f} bilhões.",
-        f"7. Considerando orçamento mínimo de US$ 1 milhão, o maior retorno sobre orçamento foi de *{filme_maior_roi['title']}*.",
-        f"8. O diretor com maior receita total é *{diretor_maior_receita['director']}*.",
-        f"9. A base possui *{filmes_financeiros:,}* filmes com orçamento e receita informados para análise financeira.",
+        f"6. O filme de maior receita na base é **{filme_maior_receita['title']}**, com aproximadamente US$ {filme_maior_receita['revenue_usd'] / 1_000_000_000:.1f} bilhões.",
+        f"7. Considerando orçamento mínimo de US$ 1 milhão, o maior retorno sobre orçamento foi de **{filme_maior_roi['title']}**.",
+        f"8. O diretor com maior receita total é **{diretor_maior_receita['director']}**.",
+        f"9. A base possui **{filmes_financeiros:,}** filmes com orçamento e receita informados para análise financeira.",
         "",
         "## Técnicas de aula aplicadas",
         "- Leitura de CSV com Pandas.",
-        "- Integração com merge entre metadados e créditos.",
+        "- Integração com `merge` entre metadados e créditos.",
         "- Concatenação para adicionar variáveis codificadas de gênero.",
         "- Limpeza de IDs, datas, valores numéricos, orçamento, receita e campos ausentes.",
         "- Criação de novas variáveis: década, gênero principal, lucro, ROI, score confiável e faixas discretizadas.",
@@ -81,5 +81,5 @@ def main() -> None:
     print(f"Insights gerados em: {caminho}")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
