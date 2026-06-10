@@ -1,0 +1,46 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Cache e arquivos gerados pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Configuracoes locais
+.env
+.env.*
+!.env.example
+kaggle.json
+.kaggle/
+
+# Dados brutos, dados processados e arquivos grandes
+data/raw/
+data/processed/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Logs e temporarios
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Arquivos do sistema/IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+docs
